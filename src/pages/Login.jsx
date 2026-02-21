@@ -70,7 +70,7 @@ export default function Login() {
 </Link>
         </p>
         <p className="text-center text-sm text-gray-600 mt-1">
-          <Link to="/Home.jsx"
+          <Link to="/"
    
   className=" hover:underline"
 >
