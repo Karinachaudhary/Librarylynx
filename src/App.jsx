@@ -19,6 +19,9 @@ import Admin from "./pages/admin"
             <Route path="/login" element={<Login/>}/>
             <Route path="/signup" element={<Signup/>}/>
             <Route path="/contact" element={<Contact/>}/>
+            <Route path="/admin" element={<admin/>}/>
+            <Route path="/student" element={<student/>}/>
+
           </Routes>
         </div>
         <Footer/>

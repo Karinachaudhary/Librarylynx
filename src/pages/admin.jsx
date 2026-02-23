@@ -1,8 +1,12 @@
 import React from "react";
 import {Link} from "react-router-dom"
+import bgImage from "../assets/adminnn.jpg"
 
 export default function AdminDashboard() {
   return (
+    <div
+          className="min-h-screen flex items-center justify-center bg-cover bg-center relative"
+          style={{ backgroundImage: `url(${bgImage})` }}>
     <div className="dashboard flex min-h-screen">
 
       {/* Sidebar */}
@@ -20,16 +24,16 @@ export default function AdminDashboard() {
       </aside>
 
       {/* Main Content */}
-      <main className="main-content flex-1 bg-gray-100 p-8">
+      <main className="main-content flex-1 bg-gray-100 p-8"> 
 
         {/* Header */}
-        <header className="header flex justify-between items-center mb-8">
+       <header className="header flex justify-between items-center mb-8">
           <h2 className="text-2xl font-bold">Admin Dashboard</h2>
           <div className="admin-info text-gray-700">Welcome, Admin</div>
-        </header>
+        </header> 
 
         {/* Stats Cards */}
-        <section className="stats grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+         <section className="stats grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           <div className="card bg-white p-4 rounded shadow">
             <p className="text-gray-500">Total Books</p>
             <h3 id="totalBooks" className="text-2xl font-bold">0</h3>
@@ -49,10 +53,9 @@ export default function AdminDashboard() {
             <p>Overdue</p>
             <h3 id="totalOverdue" className="text-2xl font-bold">0</h3>
           </div>
-        </section>
+        </section> 
 
         {/* Recent Activity Table */}
-        <section className="table-section bg-white p-4 rounded shadow">
           <h3 className="text-xl font-bold mb-4">Recent Issued Books</h3>
           <div className="overflow-x-auto">
             <table className="min-w-full border border-gray-200">
@@ -67,12 +70,11 @@ export default function AdminDashboard() {
               </thead>
               <tbody id="recentIssuedTable">
                 {/* Dynamic rows go here */}
-              </tbody>
+             </tbody>
             </table>
           </div>
-        </section>
-
       </main>
+    </div> 
     </div>
   );
 }
