@@ -1,32 +1,52 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar"
-import Footer from "./components/Footer"
-import Home from "./pages/Home"
-import Login from "./pages/Login"
-import Signup from "./pages/Signup"
-import Contact from "./pages/Contact"
-import Admin from "./pages/admin"
-// import Student from "./pages/student"
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Contact from "./pages/Contact";
+import ProtectedRoute from "./components/ProtectedRoute";
+import AdminDashboard from "./components/Dashboard/Admindashboard";
+import StudentDashboard from "./components/Dashboard/Studentdashboard";
+import { useState } from "react";
 
- function App(){
-  return(
+function App() {
+  const [userRole, setUserRole] = useState(null); // "admin" or "student"
+
+  return (
     <Router>
       <div className="min-h-screen flex flex-col bg-black text-white">
-        <Navbar/>
+        <Navbar />
         <div className="flex-grow">
           <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/login" element={<Login/>}/>
-            <Route path="/signup" element={<Signup/>}/>
-            <Route path="/contact" element={<Contact/>}/>
-            <Route path="/admin" element={<admin/>}/>
-            <Route path="/student" element={<student/>}/>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login setUserRole={setUserRole} />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/contact" element={<Contact />} />
 
+            {/* Protected Routes */}
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute userRole={userRole} requiredRole="admin">
+                  <AdminDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/student"
+              element={
+                <ProtectedRoute userRole={userRole} requiredRole="student">
+                  <StudentDashboard />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </div>
-        <Footer/>
+        <Footer />
       </div>
     </Router>
-  )
+  );
 }
+
 export default App;
