@@ -1,5 +1,5 @@
-import React from "react";
-import { BookOpen, Users, UserCog } from "lucide-react";
+import React from "react"
+import { BookOpen, Users, UserCog } from "lucide-react"
 
 export default function AdminDashboard() {
   return (
